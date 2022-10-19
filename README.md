@@ -17,3 +17,9 @@ check AST
 ```
 npm test
 ```
+
+### keyboard shortcuts
+```
+win: ctrl+shift+j
+mac: cmd+shift+j
+```

@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
 			editBuilder.delete(
 				new vscode.Range(new vscode.Position(node.start.line - 1, node.start.column), new vscode.Position(node.end.line - 1, node.end.column))
 			)
-			vscode.window.showInformationMessage('you\'ve delete a function!')
+			vscode.window.showInformationMessage(`delete function--"${node.name}" successfully!`)
 		})
 
 

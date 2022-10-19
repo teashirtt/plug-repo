@@ -19,6 +19,14 @@
         "command": "plug-repo.helloWorld",
         "title": "Hello World"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "plug-repo.helloWorld",
+        "key": "ctrl+shift+j",
+        "mac": "cmd+shift+j",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "scripts": {
