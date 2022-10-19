@@ -1,9 +1,8 @@
 import * as vscode from 'vscode';
-
+import { getFuncNode } from './main'
 
 export function activate(context: vscode.ExtensionContext) {
 	vscode.commands.registerCommand('plug-repo.helloWorld', () => {
-		vscode.window.showInformationMessage('you\'re liar!')
 
 		const editor = vscode.window.activeTextEditor
 
@@ -11,13 +10,22 @@ export function activate(context: vscode.ExtensionContext) {
 			return
 		}
 
+		const code = editor.document.getText()
+		const index = editor.document.offsetAt(editor.selection.active)
+		const node = getFuncNode(code, index)
+
+		if (!node) {
+			return
+		}
+
 		editor.edit((editBuilder) => {
 			editBuilder.delete(
-				new vscode.Range(new vscode.Position(0, 1), new vscode.Position(2, 1))
+				new vscode.Range(new vscode.Position(node.start.line - 1, node.start.column), new vscode.Position(node.end.line - 1, node.end.column))
 			)
+			vscode.window.showInformationMessage('you\'ve delete a function!')
 		})
 
-		
+
 	});
 }
 
